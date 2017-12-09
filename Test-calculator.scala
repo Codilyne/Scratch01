@@ -8,6 +8,7 @@ object floorTileCost extends App{
   var price=0.00
   var width=0.00
   var height=0.00
+  var discount=0.00
 	
   //Asks the user about the price
   println("Enter the cost per square area of tile: ")
@@ -21,12 +22,16 @@ object floorTileCost extends App{
   println("Enter the height of the floor")
   height=readLine().toDouble
 	
-  //Calculates the total cost of the tiles to cover the floor
-  cost=height*width*price
+  //Asks the user about the discount rate applied by the supplier 
+  println("Enter the discount rate")
+  discount=readLine().toDouble
+
+  //Calculates the total cost of the tiles to cover the floor after discount
+  cost=(height*width*price)*(1-discount/100)
   var trueCost=BigDecimal(cost).setScale(2)
 
   //Displays the result of the calculation and the values entered by the user	
-  println("The cost of covering a "+width+" by "+height+" floor is $"+trueCost)
+  println("The cost of covering a "+width+" by "+height+" floor with a "+discount+" percent discount rate is $"+trueCost)
 }
 
 
